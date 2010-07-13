@@ -8,6 +8,7 @@ ActionController::Routing::Routes.draw do |map|
 #Apagar index.html ou renomear em public para deixar de exibir a página inicial.
 map.root :controller => 'produtos', :action => 'index'
 map.resources :produtos
+map.resources :itens
 map.connect "/login", :controller => "usuarios", :action => "login"
   # The priority is based upon order of creation: first created -> highest priority.
 

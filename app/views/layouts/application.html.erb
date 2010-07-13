@@ -1,13 +1,24 @@
 <html>
   <head>
-  <title> Loja  - <%= @titulo %></title>
-</head>
- <body>
+    <title> Loja  - <%= @titulo %></title>
+    <%=  yield :stylesheets %>
+  </head>
+  <body>
 
- <h1> Loja - <%= yield :cabecalho %> </h1>
+    <h1> Loja - <%= yield :cabecalho %> </h1>
+
+    <% unless flash.blank? %>
+      <%
+      #Flash fica disponível para todas as páginas
+      flash.each do |key, value| %>
+        <p class="flash_<%= key %>"> <%= value %> </p>
+      <% end %>
+    <% end %>
+
 <%= #conteudo dos outros controlers
-yield  %>
-  </body>
-  </html>
+    yield  %>
 
- 
+
+  </body>
+</html>
+

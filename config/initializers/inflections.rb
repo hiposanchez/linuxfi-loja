@@ -8,3 +8,9 @@
 #   inflect.irregular 'person', 'people'
 #   inflect.uncountable %w( fish sheep )
 # end
+
+ActiveSupport::Inflector.inflections do |inflect|
+#Preferível definir cada flexionamento isoladamente
+  #'word'.pluralize
+  inflect.irregular 'item', 'itens'
+end
