@@ -14,8 +14,19 @@
         <p class="flash_<%= key %>"> <%= value %> </p>
       <% end %>
     <% end %>
+    <ul>
+      <li><%= 
+      #Em link_to pode-se passar um hashe contendo atributos que seriam passados para a âncora no html
+      link_to( "Produto", produtos_path ) %>
+      </li>
+      <% unless pedido_atual.blank? %>
+        <li>
+          <%= link_to( "Veja o seu carrinho", itens_path ) %>
+        </li>
+      </ul>
+    <%  end %>
 
-<%= #conteudo dos outros controlers
+    <%= #conteudo dos outros controlers
     yield  %>
 
 
