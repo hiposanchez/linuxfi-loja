@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title> Loja  - <%= @titulo %></title>
+    <%=  yield :stylesheets %>
+  </head>
+  <body>
+
+    <h1> Loja - <%= yield :cabecalho %> </h1>
+
+    <%= render_flash  %>
+
+    <%= #conteudo dos outros controlers
+    yield  %>
+
+
+  </body>
+</html>
+

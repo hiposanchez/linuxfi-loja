@@ -5,7 +5,7 @@ class Pedido < ActiveRecord::Base
   has_many :itens, :dependent => :destroy
   #mesmo que def itens_attributes=(array)
   accepts_nested_attributes_for :itens
-  before_save :remover_itens_zerados #, outros métodos
+  after_save :remover_itens_zerados #, outros métodos
   # ou after_save { |pedido| pedido.itens.clear }
 
   def adicionar_produto( produto, quantidade)

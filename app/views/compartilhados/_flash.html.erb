@@ -1,0 +1,7 @@
+<% unless flash.blank? %>
+      <%
+      #Flash fica disponível para todas as páginas
+      flash.each do |key, value| %>
+        <p class="flash_<%= key %>"> <%= value %> </p>
+      <% end %>
+    <% end %>

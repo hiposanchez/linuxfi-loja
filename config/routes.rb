@@ -1,17 +1,20 @@
 ActionController::Routing::Routes.draw do |map|
 
-#Arquitetura REST (respeita a estrutura para a qual o protocolo foi criado:
-#http serve para troca de recursos
-#rake:routers exibe os métodos exatos a serem utilizados
-#301 é um código a ser implementado para dizer ao browaser use o cache
-#Cada método http utilizado determina a operação que será realizada sobre aquele controler
-#Apagar index.html ou renomear em public para deixar de exibir a página inicial.
-map.root :controller => 'produtos', :action => 'index'
-map.resources :produtos
-#Utiliza-se coleções quando não é necessário um índice para especificar o recurso
-#Utilizamos member quando dentro da aplicação há varios elementos a serem evocados na url member: :conttroler:/1/:action
-map.resources :itens, :collection => { :atualizar_pedido => :post }
-map.connect "/login", :controller => "usuarios", :action => "login"
+  #Arquitetura REST (respeita a estrutura para a qual o protocolo foi criado:
+  #http serve para troca de recursos
+  #rake:routers exibe os métodos exatos a serem utilizados
+  #301 é um código a ser implementado para dizer ao browaser use o cache
+  #Cada método http utilizado determina a operação que será realizada sobre aquele controler
+  #Apagar index.html ou renomear em public para deixar de exibir a página inicial.
+  map.root :controller => 'produtos', :action => 'index'
+  map.resources :produtos
+  #Utiliza-se coleções quando não é necessário um índice para especificar o recurso
+  #Utilizamos member quando dentro da aplicação há varios elementos a serem evocados na url member: :conttroler:/1/:action
+  map.resources :itens, :collection => { :atualizar_pedido => :post }
+  map.namespace :admin do |admin|
+    admin.resources :produtos
+  end
+  map.connect "/login", :controller => "usuarios", :action => "login"
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

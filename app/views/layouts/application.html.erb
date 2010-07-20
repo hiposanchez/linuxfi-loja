@@ -7,13 +7,8 @@
 
     <h1> Loja - <%= yield :cabecalho %> </h1>
 
-    <% unless flash.blank? %>
-      <%
-      #Flash fica disponível para todas as páginas
-      flash.each do |key, value| %>
-        <p class="flash_<%= key %>"> <%= value %> </p>
-      <% end %>
-    <% end %>
+   <%= render_flash  %>
+    
     <ul>
       <li><%= 
       #Em link_to pode-se passar um hashe contendo atributos que seriam passados para a âncora no html
