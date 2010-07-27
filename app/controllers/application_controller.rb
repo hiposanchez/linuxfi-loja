@@ -2,6 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 #Todos os controles herdam deste daqui.
 
+#Este é o master
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
