@@ -3,6 +3,7 @@
 #Todos os controles herdam deste daqui.
 
 #Este é o master
+#Este ainda é o master
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
