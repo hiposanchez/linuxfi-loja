@@ -12,4 +12,16 @@ module ApplicationHelper
     render "compartilhados/flash", :flash => flash
   end
 
+  def will_paginate ( object, options = {} )
+    #Options passa a ser o resultado do merge, devido a exclamação
+    options.merge!( 
+      :previous_label => "Anterior",
+      :next_label => "Próxima" )
+    #Chama o objeto original
+    super( object, options )
+  end
+
+  def mensagem_de_paginacao( colecao )
+    content_tag :p, "Mostrando #{colecao.size} de #{colecao.total_entries}"
+  end
 end

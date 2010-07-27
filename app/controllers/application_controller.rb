@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
     if @per_page.to_i > 30
       @per_page = 30
     end
+    @per_page = 2
   end
 
   def paginate( scope, options = {} )

@@ -5,7 +5,7 @@
   <p><%= link_to "Novo Produto", new_admin_produto_path %></p>
 
 <% unless @produtos.blank? %>
-
+<%= mensagem_de_paginacao @produtos %>
   <%= will_paginate @produtos %>
 
   <table>
