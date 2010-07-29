@@ -2,6 +2,8 @@ class Pedido < ActiveRecord::Base
   #config/initializers/inflections.rb
   #É o carrinho de compras
   #Ao apagar o pedido, os itens tambem sao apagados
+  #tem as chaves estrangeiras.
+  belongs_to :usuario, :counter_cache => true #ou 'pedidos_count'
   has_many :itens, :dependent => :destroy
   #mesmo que def itens_attributes=(array)
   accepts_nested_attributes_for :itens

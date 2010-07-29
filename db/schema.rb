@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100708002911) do
+ActiveRecord::Schema.define(:version => 20100728234648) do
 
   create_table "itens", :force => true do |t|
     t.integer  "produto_id", :null => false
@@ -25,7 +25,10 @@ ActiveRecord::Schema.define(:version => 20100708002911) do
     t.string   "estado"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "usuario_id"
   end
+
+  add_index "pedidos", ["usuario_id"], :name => "index_pedidos_on_usuario_id"
 
   create_table "produtos", :force => true do |t|
     t.string   "nome",       :limit => 100,                                :null => false
@@ -34,5 +37,20 @@ ActiveRecord::Schema.define(:version => 20100708002911) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "usuarios", :force => true do |t|
+    t.string   "nome",                                :null => false
+    t.string   "email",                               :null => false
+    t.boolean  "administrador",    :default => false
+    t.string   "hash_da_senha"
+    t.string   "salt"
+    t.datetime "ultimo_acesso_em"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "pedidos_count",    :default => 0
+  end
+
+  add_index "usuarios", ["email"], :name => "index_usuarios_on_email", :unique => true
+  add_index "usuarios", ["ultimo_acesso_em"], :name => "index_usuarios_on_ultimo_acesso_em"
 
 end

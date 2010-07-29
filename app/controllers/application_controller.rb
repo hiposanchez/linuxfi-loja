@@ -9,11 +9,17 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
+  #Para que este novo helper fique visível para todos os demais controlers
+  include AutenticacaoControllerHelper
+
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  #Qualquer parametro que pareça com senha não são gravados no log
 
-  #Métodos que ficam disponíveis para as views
-  helper_method :pedido_atual
+  filter_parameter_logging /senha/
+
+    #Métodos que ficam disponíveis para as views
+  helper_method :pedido_atual, :usuario_atual, :logado?, :administrador?
 
   protected
 
