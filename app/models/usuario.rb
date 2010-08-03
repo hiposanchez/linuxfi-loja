@@ -1,5 +1,5 @@
 class Usuario < ActiveRecord::Base
-#É o hasmany quem define quem são as chaves estrangeiras
+  #É o hasmany quem define quem são as chaves estrangeiras
   has_many :pedidos
   
   validates_presence_of :nome
@@ -12,8 +12,12 @@ class Usuario < ActiveRecord::Base
   validates_length_of :senha, :within => 4..40, :if => :senha_necessaria?
 
   attr_accessor :senha, :termos_e_condicoes
+  
+  attr_protected :administrador, :senha_em_hash
 
-  beore_validation :hashhear_senha
+  before_validation :hashear_senha
+
+  after_create :enviar_email
 
   def senha_necessaria?
     self.senha_em_hash.blank? || !self.senha.blank?
@@ -23,20 +27,21 @@ class Usuario < ActiveRecord::Base
     self.senha_em_hash == Usuario.hashear( _senha, self.salt )
   end
 
-    #Todos os métodos abaixo de class << self são métodos de classe
+  #Todos os métodos abaixo de class << self são métodos de classe
   class << self
 
-  def hashhear(senha, salt)
-    Digest::SHA1.hexdigest("--#{salt}--#{senha}--")
-  end
+    def hashear(senha, salt)
+      Digest::SHA1.hexdigest("--#{salt}--#{senha}--")
+    end
 
-  def autenticar( email, senha)
-    usuario = Usuario.first( :conditions => { :email => email} )
-    #ou usuario = Usuario.find_by_email( email )
-    if usuario && usuario.senha_correta?( senha )
-      usuario
-    else
-      nil
+    def autenticar( email, senha)
+      usuario = Usuario.first( :conditions => { :email => email} )
+      #ou usuario = Usuario.find_by_email( email )
+      if usuario && usuario.senha_correta?( senha )
+        usuario
+      else
+        nil
+      end
     end
   end
 
@@ -50,4 +55,9 @@ class Usuario < ActiveRecord::Base
     end
     self.senha_em_hash = Usuario.hashear(self.senha, self.salt)
   end
+
+  def enviar_email
+    UsuarioMailer.deliver_cadastro(self)
+  end
+
 end

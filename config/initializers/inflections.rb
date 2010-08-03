@@ -13,4 +13,5 @@ ActiveSupport::Inflector.inflections do |inflect|
 #Preferível definir cada flexionamento isoladamente
   #'word'.pluralize
   inflect.irregular 'item', 'itens'
+  inflect.irregular 'sessao', 'sessoes'
 end

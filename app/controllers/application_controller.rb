@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   def pedido_atual
     unless @pedido_atual
       @pedido_atual = session[:pedido_id].blank? ?
-        Pedido.new : Pedido.find( session[:pedido_id] )
+        Pedido.new : Pedido.find_by_id( session[:pedido_id] )
     end
     @pedido_atual
   end

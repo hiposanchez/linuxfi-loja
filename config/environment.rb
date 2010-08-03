@@ -15,7 +15,11 @@ Rails::Initializer.run do |config|
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
   #Nova pasta dentro de app
-  config.load_paths += [ "#{RAILS_ROOT}/app/controller_helpers" ]
+  config.load_paths += [ 
+    "#{RAILS_ROOT}/app/controller_helpers",
+    "#{RAILS_ROOT}/app/mailers"
+
+    ]
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"

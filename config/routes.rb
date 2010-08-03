@@ -11,6 +11,9 @@ ActionController::Routing::Routes.draw do |map|
   #Utiliza-se coleções quando não é necessário um índice para especificar o recurso
   #Utilizamos member quando dentro da aplicação há varios elementos a serem evocados na url member: :conttroler:/1/:action
   map.resources :itens, :collection => { :atualizar_pedido => :post }
+  map.resource :sessao
+  map.resource :usuario
+
   map.namespace :admin do |admin|
     admin.resources :produtos
   end
