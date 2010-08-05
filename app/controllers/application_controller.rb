@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   #Para que este novo helper fique visível para todos os demais controlers
-  include AutenticacaoControllerHelper
+  #include AutenticacaoControllerHelper
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password

@@ -1,3 +1,4 @@
+#rake gems:unpack
 class Usuario < ActiveRecord::Base
   #É o hasmany quem define quem são as chaves estrangeiras
   has_many :pedidos
