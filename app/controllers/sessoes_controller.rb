@@ -28,7 +28,7 @@ class SessoesController < ApplicationController
 
   def destroy
     reset_session
-    respond do |format|
+    respond_to do |format|
       format.html do
         flash[:aviso] = "Você saiu da aplicação com sucesso."
         redirect_to produtos_path

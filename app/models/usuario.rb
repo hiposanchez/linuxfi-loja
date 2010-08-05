@@ -24,8 +24,14 @@ class Usuario < ActiveRecord::Base
     self.senha_em_hash.blank? || !self.senha.blank?
   end
 
-  def senha_coreta?( _senha )
+  def senha_correta?( _senha )
     self.senha_em_hash == Usuario.hashear( _senha, self.salt )
+  end
+
+  def pedido_atual
+    #Se estiver nil ou false, executa atribuiçã. Operador elvis.
+    #Encontre ou crie usuario => a, estado => b
+    @pedido ||= Pedido.find_or_create_by_usuario_id_and_estado( self.id, "carrinho" )
   end
 
   #Todos os métodos abaixo de class << self são métodos de classe
