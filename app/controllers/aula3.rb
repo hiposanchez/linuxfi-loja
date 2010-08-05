@@ -1,3 +1,5 @@
+#Produto.create! :nome => "Livro de Java", :preco => 30
+#Controll drivetrops effects prototype apaga em javascript!!
 #github ssh-keygen -t rsa -C hiposanchez@gmail.com
 #/home/linuxfi/.ssh/id_rsa.pub
 #linuxfi@linuxfi-desktop:~/.ssh$ ssh git@github.com

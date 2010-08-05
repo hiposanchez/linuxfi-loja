@@ -30,6 +30,21 @@ class Pedido < ActiveRecord::Base
     self.itens.blank?
   end
 
+  def quantidade_total
+    self.itens.sum( :quantidade )
+  end
+
+  def unir( pedido )
+    return if pedido.blank? || self == pedido
+    pedido.itens.each do |item|
+      self.adicionar_produto( item.produto, item.quantidade )
+    end
+    self.save
+    pedido.destroy
+  end
+  
+  protected
+
   def remover_itens_zerados
     itens_a_remover = []
     self.itens.each do |item|

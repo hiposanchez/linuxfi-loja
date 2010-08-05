@@ -22,6 +22,7 @@ class ItensController < ApplicationController
         #redireciona para produtos com post antes, url sem o host
         redirect_to itens_path
       end
+      format.js
     end
   end
   
