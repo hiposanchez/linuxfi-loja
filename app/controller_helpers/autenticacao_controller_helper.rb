@@ -1,5 +1,5 @@
 module AutenticacaoControllerHelper
-  #sudo gem install rspec rspec-rails factory_girl remarkable_rails remarkable_activerecord --no-ri --no-rdoc
+ 
 
   protected
 

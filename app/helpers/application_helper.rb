@@ -16,7 +16,7 @@ module ApplicationHelper
     #Options passa a ser o resultado do merge, devido a exclamação
     options.merge!( 
       :previous_label => "Anterior",
-      :next_label => "Próxima" )
+      :next_label => "Proxima" )
     #Chama o objeto original
     super( object, options )
   end
