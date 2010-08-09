@@ -1,3 +1,5 @@
+#Manter instalados cucumber rspec e capibara
+
 #Produto.create! :nome => "Livro de Java", :preco => 30
 #Controll drivetrops effects prototype apaga em javascript!!
 #github ssh-keygen -t rsa -C hiposanchez@gmail.com
