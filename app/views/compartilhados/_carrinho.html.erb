@@ -1,7 +1,8 @@
-<% unless pedido_atual.blank? %>
+<%  unless pedido_atual.blank?
+%>
 
 <p>
-  O seu carrinho contém <%=  pedido_atual.quantidade_total %>
+  O seu carrinho contém <%= pedido_atual.quantidade_total %>
   produtos. <br/>
   <%= link_to "Ver lista",
   "javascript:void(0)",
@@ -9,9 +10,9 @@
 </p>
 
 <ul id="carrinho_lista" style="display: none;">
-  <% pedido_atual.itens.each do |item|%>
-  <li> <%= item.produto.nome %> - <% item.quantidade %> </li>
-  <% end %>
+  <%  pedido_atual.itens.each do |item|%>
+  <li> <%=  item.produto.nome %> - <% item.quantidade %> </li>
+  <% end  %>
 </ul>
 
 <% end %>

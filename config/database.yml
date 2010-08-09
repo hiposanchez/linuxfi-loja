@@ -21,7 +21,7 @@ development:
   database: loja_development
   pool: 5
   username: root
-  password: x
+  password: '00531214'
   
 
 # Warning: The database defined as "test" will be erased and
@@ -34,7 +34,7 @@ test:
   database: loja_development
   pool: 5
   username: root
-  password: x
+  password: '00531214'
   
 
 production:
@@ -44,5 +44,5 @@ production:
   database: loja_production
   pool: 5
   username: root
-  password: x
+  password: '00531214'
   
