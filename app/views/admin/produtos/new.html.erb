@@ -10,6 +10,14 @@
     <%= error_message_on @produto, :preco %>
   </p>
 
+  <p>
+    Imagem: <br/>
+    <%= f.file_field :imagem %>
+    <% if @produto.imagem.file? %><br/>
+      Imagem Atual: <%= image_tag @produto.imagem.url(:thumb) %>
+    <% end %>
+  </p>
+
   <p>Descrição: <br/>
     <%= f.text_area :descricao %>
   </p>

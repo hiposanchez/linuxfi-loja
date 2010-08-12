@@ -10,7 +10,9 @@ module Admin::ProdutosHelper
     end
     form_for( @produto,
       :url => opcoes.first,
-      :html => { :method => opcoes.last },
+      :html => { :method => opcoes.last,
+      :multipart => true
+      },
       &block
     )
   end
