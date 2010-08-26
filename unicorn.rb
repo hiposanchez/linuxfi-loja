@@ -18,7 +18,7 @@ working_directory "/home/deployer/shop/current" # available in 0.94.0+
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
-listen "/tmp/.shop", :backlog => 64
+listen "/tmp/shop.socket", :backlog => 64
 
 # nuke workers after 30 seconds instead of 60 seconds (the default)
 timeout 30
