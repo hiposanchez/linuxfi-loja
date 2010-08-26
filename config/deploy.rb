@@ -12,9 +12,9 @@ set :scm,                 :git
 ssh_options[:paranoid]    = false
 default_run_options[:pty] = true
 
-role :app, "184.106.218.215"
-role :web, "184.106.218.215"
-role :db,  "184.106.218.215", :primary => true
+role :app, "184.106.218.224"
+role :web, "184.106.218.224"
+role :db,  "184.106.218.224", :primary => true
 
 namespace :deploy do
 
